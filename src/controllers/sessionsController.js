@@ -9,8 +9,7 @@ export async function insert(req, res) {
   const { email, password } = req.body;
   try {
     const user = await db.collection('users').findOne({ email });
-    if (!user) return res.sendStatus(404);
-    if (!bcrypt.compareSync(password, user.password))
+    if (!bcrypt.compareSync(password, user.password) || !user)
       return res.sendStatus(401);
 
     const token = uuid();
