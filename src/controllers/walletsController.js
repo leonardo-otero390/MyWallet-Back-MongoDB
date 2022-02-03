@@ -11,7 +11,7 @@ export async function insertMovimentation(req, res) {
     if (!thisTokenUser) return res.sendStatus(401);
     await db
       .collection('wallets')
-      .insertOne({ ...req.body, userId: thisTokenUser.userId });
+      .insertOne({ ...req.body, userId: thisTokenUser.userId,date: new Date()});
     return res.sendStatus(201);
   } catch (error) {
     console.log(error);
