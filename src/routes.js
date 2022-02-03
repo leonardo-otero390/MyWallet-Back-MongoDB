@@ -13,7 +13,7 @@ routes.get('/health', async (req, res) => {
 routes.post('/sign-up', usersController.insert);
 routes.post('/log-in', sessionsController.upsert);
 routes.use(validateToken);
-routes.post('/logout', sessionsController.remove);
+routes.delete('/logout', sessionsController.remove);
 routes.post('/wallet', walletsController.insertMovimentation);
 routes.get('/wallet', walletsController.find);
 
