@@ -4,7 +4,7 @@ import * as walletValidation from '../validation/walletValidation.js';
 export async function insertMovimentation(req, res) {
   const validation = walletValidation.newRegister.validate(req.body);
   if (validation.error) return res.sendStatus(400);
-  const userId = req.locals.toString();
+  const userId = req.locals;
   try {
     await db.collection('wallets').insertOne({
       ...req.body,
@@ -18,7 +18,7 @@ export async function insertMovimentation(req, res) {
   }
 }
 export async function find(req, res) {
-  const userId = req.locals.toString();
+  const userId = req.locals;
   try {
     const walletActivity = await db
       .collection('wallets')
