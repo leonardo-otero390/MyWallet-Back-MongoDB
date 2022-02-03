@@ -18,7 +18,7 @@ export default async function validateToken(req, res, next) {
   try {
     const thisTokenUser = await db.collection('sessions').findOne({ token });
     if (!thisTokenUser) return res.sendStatus(401);
-    req.locals = thisTokenUser.userId.toString();
+    res.locals.userId = thisTokenUser.userId.toString();
   } catch (err) {
     console.log(err);
     return res.sendStatus(500);
