@@ -3,9 +3,9 @@ import { v4 as uuid } from 'uuid';
 import db from '../database/connection.js';
 import * as usersValidation from '../validation/usersValidation.js';
 
-export async function insert(req, res) {
+export async function upsert(req, res) {
   const validation = usersValidation.validateLogIn.validate(req.body);
-  if (validation.error) return res.status(400).send(validation.error.message);
+  if (validation.error) return res.sendStatus(400);
   const { email, password } = req.body;
   try {
     const user = await db.collection('users').findOne({ email });

@@ -5,7 +5,7 @@ import * as usersValidation from '../validation/usersValidation.js';
 export async function insert(req, res) {
   const newUser = req.body;
   const validation = usersValidation.validateNew.validate(newUser);
-  if (validation.error) return res.status(422).send(validation.error.message);
+  if (validation.error) return res.sendStatus(422);
   try {
     const emailSearch = await db
       .collection('users')
