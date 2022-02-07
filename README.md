@@ -2,7 +2,7 @@
 
 An easy to use financial manager app. Track your revenues and expenses to learn how you spend your money and know all the time how much you have.
 
-This project is the backend with mongodb for [My Wallet](my-wallet-front-three.vercel.app) 
+This project is the backend with mongodb for [My Wallet](https://my-wallet-front-three.vercel.app/) 
 
 You can use the [endpoint deployed to heroku](https://my-wallet390.herokuapp.com)
 Below are the implemented features:
